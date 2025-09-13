@@ -5,6 +5,14 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
+const { Pool } = require("pg");
+
+const pool = new Pool({
+  connectionString: process.env.SUPABASE_DB_URL, 
+  ssl: { rejectUnauthorized: false }
+});
+
+
 // View engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
