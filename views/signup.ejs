@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PL. - Signup</title>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+    <% if (typeof error !== 'undefined') { %>
+        <script>
+            alert("<%= error %>");
+        </script>
+    <% } %>
+
+    <header>
+        <div class="brand">
+            <h1>PL.</h1>
+        </div>
+        <div class="mess">
+            <a class="navbar-link" href="/"><h3>HOME</h3></a>
+        </div>
+    </header>
+
+    <div class="contents">
+        <div  class="disp">
+            <img src="img/Expanded.png" alt="">
+            <img src="img/Group.png" alt="">
+            <img src="img/Vector (1).png" alt="">
+        </div>
+        
+        <h3>Sign Up with Email</h3>
+        <form class="form" action="/signup" method="post">
+            <label for="email"></label>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <label for="confirm-password"></label>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+
+            <button id="signup">Sign Up</button>
+
+            <br>
+            <p>Other Signup options</p>
+            <div class="other-login">
+                <a href="#"><img src="img/googlelogo.png" alt=""></a>
+                <a href="#"><img src="img/applelogo.png" alt=""></a>
+            </div>
+            <div class="sign-up-opt">
+                <p>Already have an account? <a href="/login">Log in</a></p>
+            </div>
+    </div>
+        </form>
+        
+
+
+
+    <footer>
+        <div class="main-ft">PL</div>
+        <div class="left1"><p>&copy; 2025 PL, Inc.</p></div>
+        <div class="middle"><p>Terms of Service</p></div>
+        <div class="right-ft"><p>Privacy Policy</p></div>
+    </footer>
+</body>
+</html>

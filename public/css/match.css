@@ -1,0 +1,159 @@
+*{box-sizing: border-box;}
+html, body{height:100%}
+body{
+    margin: 0;
+    --grey:linear-gradient(180deg, #f7fbff 0%, #f1f7ff 100%);
+    background: var(--grey);
+    text-decoration: none;
+    text-transform: initial;
+    transition: 0.2 ease-in-out;
+    color: #0f172a;
+    scroll-behavior: smooth;
+    line-height: 1.5;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+}
+:root{
+    --bg: #f7fbff;
+    --card: #ffffff;
+    --accent: var(--primary);
+    --accent-hover: #2563eb;
+    --glass: rgba(255, 255, 255, 0.6);
+    --max-width: 1200px;
+    --radius: 12px;
+    --shadow: rgba(16, 24, 40, .08) 0px 8px 24px;
+    --primary:#647FBC;
+    --light-blue:#91ADC8;
+    --greenish:#AED6CF;
+    --yellowish:#FAFDD6;
+    --white-color: var(--bg);
+    font-family: 'Poppins', sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* =======header starts============ */
+header{
+    width: 100%;
+    padding: 0;
+}
+.header-container{
+    width: 100%;
+}
+.contents{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: bolder;
+    padding:1.5rem 5rem 0rem 5rem;
+}
+.line{
+    margin-top: -2.2em;
+    width: 86%;
+    height: 10px;
+    border: 2px solid var(--primary);
+}
+.header-container .logo a{
+    text-decoration: none;
+    font-size: 2em;
+    color: var(--primary);
+    font-weight: bolder;
+}
+/* ==========header ends============= */
+
+/* ---------styling the trainers section --------------- */
+.trainers-Sec{
+    width:100%;
+    padding-bottom: 10rem;
+}
+.trainer-container{
+    width: 100%;
+    padding:0rem 5rem 0rem 5rem;
+}
+.heading-txt{
+    width: 100%;
+    color: var(--primary);
+    line-height: 0;
+    font-size: 20px;
+    margin-bottom: 2em;
+}
+.trainer-top-text{
+    font-size: 3rem;
+    font-weight: bolder;
+}
+.teachers{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: left;
+}
+.teachers .box{
+    width:20%;
+    background-color: var(--greenish);
+    display: flex;
+    flex-direction: column;
+    margin: 0.7em 0.7em;
+    border: 0;
+    height: 50%;
+    padding-top: 0px;
+}
+.descriptions{
+    width: 100%;
+    background-color:var(--glass);
+    display: flex;
+    height: 20%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 6px 8px;
+}
+.teacher-name{
+    width: 50%;
+    background-color:transparent;
+    font-size: 20px;
+    letter-spacing: -0.025em;
+    font-weight: bolder;
+}
+.trainer-nm{
+    background-color: transparent;
+    font-size: 18px;
+}
+.box .img-box{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+.box .img-box img{
+    width: 100%;
+}
+/* -----------Trainers section ends here------------- */
+
+
+
+
+
+/* --------footer starts------------ */
+footer{
+    background-color: var(--primary);
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white-color);
+    font-weight: bolder;
+    flex-wrap: wrap;
+    font-size: 22px;
+}
+footer .main-ft{
+    font-weight: bolder;
+    font-size: 30px;
+}
+/* ----------footer ends------------- */
