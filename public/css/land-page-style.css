@@ -315,12 +315,13 @@ body{
     gap: .6rem;
     text-decoration: none;
     color: var(--primary);
-    font-weight: 700;
-    font-size: 3rem;
+    font-size: 2.3rem;
+    font-weight: bolder;
     letter-spacing: -0.025em;
+    padding: .1rem 0;
     text-transform: uppercase;
     user-select: none;
-    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
     transition: color 0.2s ease-in-out;
     background-color: transparent;
 }
@@ -360,6 +361,7 @@ body{
 
 .cta-signup{
     background-color: var(--primary);
+    padding: 4rem 2rem;
 }
 
 .cta-signup .cta-text{
@@ -369,16 +371,38 @@ body{
     margin-bottom: 3rem;
 }
 
+.cta-signup .cta-text h2{
+    color: var(--white-color);
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
 .cta-signup p{
     font-size: 1.1rem;
     color: white;
     margin-bottom: 2.5rem;
 }
 
+.cta-signup .cta-text p.p{
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 2rem;
+}
+.cta-signup .container{
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .cta-signup .container .cta-text{
     font-size: 2rem;
     padding: 1rem 1rem;
     margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 .cta-signup .container .cta-text p.p{
@@ -392,9 +416,10 @@ body{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     padding-bottom: 2rem;
+    gap: 1rem;
 }
 
 /*Individual Card*/
@@ -404,22 +429,17 @@ body{
     display: flex;
     flex-direction: column;
     margin: 0.7em 0.7em;
-    border: 0;
-    height: 20%;
-    padding-top: 0px;
-    background-color: var(--white-color);
-    box-shadow: var(--shadow); 
+    border-radius: 16px;
+    height: 100%;
+    min-height: 400px;
+    padding-top: 0px; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     text-align: center;
     user-select: none;
     overflow: hidden;
-    box-sizing: border-box;
     justify-content: space-between;
     text-decoration: none;
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
 }
 
 .cta-card:hover{
@@ -430,32 +450,29 @@ body{
     width: 100%;
     align-items: center;
     display: flex;
+    position: relative;
+    max-width: 100%;
     flex-direction: column;
-    height: 50%;
+    height: 200px;
     justify-content: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
 }
 .cta-card .descriptions{
+    flex: 1;
+    padding: 1.5rem;
     width: 100%;
     background-color: var(--white-color);
     display: flex;
-    height: 20%;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 6px 8px;
-    border-radius: 0 0 var(--radius) var(--radius);
 }
-
-.cta-card .img{
-    width: 50px;
-    height: 40px;
-    margin-bottom: 1rem;
-    object-fit: contain;
-    border-radius: 50%;
-    padding: 0.5rem;
-    box-shadow: var(--shadow);
+.cta-card .img-box img{
+    width: 100%;
+    height: 100%;
+    margin-bottom: .5rem;
+    display: block;
+    object-fit: cover;
+    padding: .5rem;
 }
 
 .cta-card h3{
@@ -471,6 +488,7 @@ body{
     font-weight: bolder;
     color: var(--primary);
     margin-bottom: 0.5rem;
+    margin-top: 0;
 
 }
 
@@ -613,22 +631,24 @@ body{
 .trainers-Sec{
     background-color: var(--light-blue);
     width:100%;
-    padding: 4rem 4rem;
+    padding: 4rem 2rem;
 }
 .trainer-container{
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .trainer-container .trainer-top-text{
     color: var(--white-color);
     font-weight: bolder;
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 3rem;
 }
 .teachers{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
 }
 .teachers .box{
@@ -638,8 +658,12 @@ body{
     flex-direction: column;
     margin: 0.7em 0.7em;
     border: 0;
-    border-radius: var(--radius);
-    height: 50%;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    height: 100%;
+    min-height: 400px;
+    position: relative;
     padding-top: 0px;
 }
 
@@ -648,6 +672,26 @@ body{
     transform: translateY(-6px);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
+
+.teachers .box .img-box{
+    width: 100%;
+    height: 280px;
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.teachers .box .img-box img{
+    width: 100%;
+    height: 100%;
+    margin-bottom: .5rem;
+    display: block;
+    object-fit: cover;
+}
+
 .descriptions{
     width: 100%;
     background-color: var(--white-color);
@@ -675,10 +719,24 @@ body{
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 0%;
+    height: 50%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--greenish);
+    flex: 1 1 100px;
+    padding: 1rem;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
 }
 .box .img-box img{
     width: 100%;
+    height: 160px;
+    object-fit: contain;
+    padding: 0.5rem;
+    box-shadow: var(--shadow);
 }
 /* -----------Trainers section ends here------------- */
 
@@ -699,3 +757,153 @@ footer .main-ft{
     font-size: 20px;
 }
 /* ----------footer ends------------- */
+
+/* ===== Mobile Styles ===== */
+@media (max-width: 768px) {
+  /* NAVIGATION BAR */
+  .container-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* keep them on the right */
+    gap: 0.5rem;
+  }
+
+  .navbar-link,
+  .btn-primary {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* HERO SECTION */
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero-text {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-image img {
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* CTA SIGNUP */
+  .cta-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 0 1.2rem; /* nice left & right padding */
+  }
+
+  .cta-card {
+    width: 100%;
+    max-width: 400px; /* limit max width for better readability */
+    margin: 0 auto; /* center the cards */
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-card {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .cta-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .descriptions {
+    padding: 0.8rem;
+  }
+
+  /* TRAINERS SECTION */
+  .teachers {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 0 1.2rem;
+  }
+
+  .teachers .box {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .teachers .box img {
+    width: 100%;
+    background: var(--greenish);
+    height: auto;
+    display: block;
+  }
+
+  .descriptions {
+    padding: 0.8rem;
+  }
+
+  /* FOOTER */
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 0;
+  }
+
+  /* HEADINGS */
+  h2, h3 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  p{
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* BUTTONS */
+  .btn-primary {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
