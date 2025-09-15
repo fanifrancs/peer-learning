@@ -75,7 +75,7 @@ router.get("/trainer/:id", requireAuth, async (req, res) => {
       return res.send("Something went wrong. <a href='/dashboard'>Return to dashboard</a>");
     }
 
-    console.log(existingUser);
+    // console.log(existingUser);
 
     const { data: trainerData, error:fetchTrainerError } = await supabase
     .from("trainers")
@@ -87,7 +87,7 @@ router.get("/trainer/:id", requireAuth, async (req, res) => {
       return res.send("Something went wrong. <a href='/dashboard'>Return to dashboard</a>");
     }
 
-    console.log(trainerData)
+    // console.log(trainerData)
 
     // Fetch skills for this user
     let skillsString = "";
@@ -106,7 +106,7 @@ router.get("/trainer/:id", requireAuth, async (req, res) => {
       }
     }
 
-    console.log(skillsString);
+    // console.log(skillsString);
 
     res.render('trainer_page', {existingUser, trainerData, skillsString});
 

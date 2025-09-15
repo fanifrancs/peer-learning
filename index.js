@@ -44,6 +44,7 @@ const loginRoutes = require('./routes/login');
 const profileRoutes = require('./routes/profile');
 const trainerRoutes = require('./routes/trainer');
 const dashboardRoutes = require('./routes/dashboard');
+const searchRoutes = require('./routes/search');
 const logoutRoutes = require('./routes/logout');
 
 // use routes
@@ -53,6 +54,7 @@ app.use('/', loginRoutes);
 app.use('/', profileRoutes);
 app.use('/', trainerRoutes);
 app.use('/', dashboardRoutes);
+app.use('/', searchRoutes);
 app.use('/', logoutRoutes);
 
 app.listen(PORT, () => {

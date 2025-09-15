@@ -19,6 +19,7 @@ router.get("/dashboard", requireAuth, async(req, res) => {
 
         // Extract unique trainer emails
         const trainerEmails = [...new Set(trainersData.map(row => row.user_email))];
+
         // console.log(trainerEmails);
 
         let trainers = []; // this will hold the user objects
@@ -57,7 +58,7 @@ router.get("/dashboard", requireAuth, async(req, res) => {
             }
         }
 
-        console.log(trainers);
+        // console.log(trainers);
 
         //Send the array of trainers to dashboard.ejs
         // req.flash("info_msg", trainers);
