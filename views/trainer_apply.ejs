@@ -8,15 +8,25 @@
     <link rel="stylesheet" href="/css/trainer-register.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">PL.</div>
-        <div class="title">Your Learning</div>
-        <a href="/profile">Profile</a>
+    <header class="site-header">
+        <div class="container-head">
+            <a class="brand" href="/">
+                    <svg class="logo" viewbox="0 0 24 24" aria-hidden="true"></svg>
+                    <span>PL.</span>
+                </a>
+
+                <nav class="navbar" id="navbar">
+                    <a class="navbar-link" href="/">HOME</a>
+                    <a class="navbar-link" href="/dashboard">FIND TRAINERS</a>
+                    <a class="navbar-link" href="/profile">PROFILE</a>
+                    <a class="navbar-link" href="/logout">LOGOUT</a>
+                </nav>
+        </div>
     </header>
     <main>
-        <h1 class="main-title">Register to be a Trainer</h1>
+        <h1 class="main-title">REGISTER AS A TRAINER</h1>
         <p class="subtitle">Complete your skills details</p>
-        <form class="form-container" method="post" action="/trainer/apply">
+        <form class="form-container" action="/trainer/apply" method="post">
             <div class="form-group">
                 <label for="what-teach">What you want to teach:</label>
                 <input type="text" id="what-teach" name="what_teach" required>
@@ -25,15 +35,22 @@
                 <label for="expertise">Expertise level (Rate out of 5):</label>
                 <input type="number" id="expertise" name="expertise" min="1" max="5" required>
             </div>
+            <!-- <div class="form-group">
+                <label for="whatsapp">Whatsapp:</label>
+                <input type="tel" id="whatsapp" name="whatsapp" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div> -->
             <button type="submit" class="submit-btn">Submit</button>
         </form>
     </main>
-    <footer class="footer">
-        <div>©2025, PL, Inc.</div>
-        <div class="footer-links">
-            <a href="#">Terms of Service</a>
-            <a href="#">Privacy Policy</a>
-        </div>
-    </footer>
+    <!-- <footer>
+        <div class="main-ft">PL.</div>
+        <div class="left1"><p>&copy; 2025 PL, Inc.</p></div>
+        <div class="middle"><p>Terms of Service</p></div>
+        <div class="right-ft"><p>Privacy Policy</p></div>
+    </footer> -->
 </body>
 </html>

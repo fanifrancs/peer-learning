@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="land-page-style.css">
-    
+    <meta charset="UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PEER TO PEER SKILL EXCHANGE PLATFORM</title>
     <link href="/css/land-page-style.css" rel="stylesheet" />
@@ -18,9 +16,18 @@
                 </a>
 
                 <nav class="navbar" id="navbar">
-                    <a class="navbar-link" href="#">HOME</a>
-                    <a class="navbar-link" href="/signup">SIGN UP</a>
-                    <a class="btn-primary" href="/login">LOG IN</a>
+                    <% if (user) { %>
+                        <!-- User is logged in -->
+                        <a class="navbar-link" href="/">HOME</a>
+                        <a class="navbar-link" href="/dashboard">FIND TRAINERS</a>
+                        <a class="navbar-link" href="/profile">PROFILE</a>
+                        <a class="navbar-link" href="/logout">LOGOUT</a>
+                    <% } else { %>
+                        <!-- User is not logged in -->
+                        <a class="navbar-link" href="/">HOME</a>
+                        <a class="navbar-link" href="/signup">SIGN UP</a>
+                        <a class="btn-primary" href="/login">LOG IN</a>
+                    <% } %>
                 </nav>
             </div>
     </header>
@@ -99,7 +106,7 @@
                 <p class="testimonial-text">Amazing! Wow! Well done!</p>
                 <div class="author-info">
                     <img src="/img/4adedf6b-be5a-4b9b-9f93-7a1ebbb9fe88.jpeg" alt="Jacob Jones"> <div class="author-details">
-                        <span class="author-name">YUSUFF</span>
+                        <span class="author-name">EMMANUEL</span>
                         <span class="author-title">PRODUCT DESIGNER</span>
                     </div>
                 </div>
@@ -122,7 +129,7 @@
                         </div>
                         <div class="descriptions">
                             <h2 class="teacher-name">GRAPHIC DESIGNER</h2>
-                        <p class="trainer-nm">JOHN</p>
+                        <p class="trainer-nm">OLAMIDE</p>
                         </div>
                     </div>
 

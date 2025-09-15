@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset-Email</title>
-    <link rel="stylesheet" href="/css/pw-reset.css">
+    <link rel="stylesheet" href="pw-reset.css">
 </head>
 <body>
-    <header>
-        <div class="brand">
-            <h1>PL.</h1>
-        </div>
-        <div class="mess">
-            <a class="navbar-link" href="/"><h3>HOME</h3></a>
+    <header class="site-header">
+        <div class="container-head">
+           <a class="brand" href="../landing-page/land-page.html">
+                    <svg class="logo" viewbox="0 0 24 24" aria-hidden="true"></svg>
+                    <span>PL.</span>
+            </a>
+    
+            <nav class="navbar" id="navbar">
+                <a class="navbar-link" href="/login&&signup/signup.html"><h3>SIGN UP</h3></a>
+            </nav>
         </div>
     </header>
 
     <div class="contents">
         <h2>Reset Your Password</h2>
-        <form action="" method="GET">
+        <form action="email-otp.html" method="GET">
             <label for="email"></label>
             <input type="email" id="email" name="email"  placeholder="Enter Your Email" required>
             <button type="submit">Send OTP</button>

@@ -7,26 +7,36 @@
     <link rel="stylesheet" href="/css/signup.css">
 </head>
 <body>
-    <% if (typeof error !== 'undefined') { %>
-        <script>
-            alert("<%= error %>");
-        </script>
+    <% if (typeof success_msg !== "undefined" && success_msg && success_msg.length) { %>
+        <script>alert("<%= success_msg %>")</script>
     <% } %>
 
-    <header>
-        <div class="brand">
-            <h1>PL.</h1>
-        </div>
-        <div class="mess">
-            <a class="navbar-link" href="/"><h3>HOME</h3></a>
-        </div>
+    <% if (typeof error_msg !== "undefined" && error_msg && error_msg.length) { %>
+        <script>alert("<%= error_msg %>")</script>
+    <% } %>
+
+    <!-- NAVIGATION BAR STARTS HERE -->
+    <header class="site-header">
+        <div class="container-head">
+                <a class="brand" href="/">
+                    <svg class="logo" viewbox="0 0 24 24" aria-hidden="true"></svg>
+                    <span>PL.</span>
+                </a>
+
+                <nav class="navbar" id="navbar">
+                    <a class="navbar-link" href="/">HOME</a>
+                    <a class="navbar-link" href="/signup">SIGN UP</a>
+                    <a class="navbar-link" href="/login">LOGIN</a>
+                </nav>
+            </div>
     </header>
+    <!-- NAVIGATION BAR ENDS HERE -->
 
     <div class="contents">
         <div  class="disp">
-            <img src="img/Expanded.png" alt="">
-            <img src="img/Group.png" alt="">
-            <img src="img/Vector (1).png" alt="">
+            <img src="/img//Expanded.png" alt="">
+            <img src="/img//Group.png" alt="">
+            <img src="/img//Vector (1).png" alt="">
         </div>
         
         <h3>Sign Up with Email</h3>
@@ -34,17 +44,17 @@
             <label for="email"></label>
             <input type="email" name="email" id="email" placeholder="Email" required>
             <label for="password"></label>
-            <input type="password" name="password" id="password" placeholder="Password" required>
+            <input type="password" name="password" id="password" placeholder="Password" minlength="6" required>
             <label for="confirm-password"></label>
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+            <input type="password" name="confirm_password" id="confirm-password" placeholder="Confirm Password" minlength="6" required>
 
-            <button id="signup">Sign Up</button>
+            <button id="signup" type="submit">Sign Up</button>
 
             <br>
             <p>Other Signup options</p>
             <div class="other-login">
-                <a href="#"><img src="img/googlelogo.png" alt=""></a>
-                <a href="#"><img src="img/applelogo.png" alt=""></a>
+                <a href="#"><img src="/img/googlelogo.png" alt=""></a>
+                <a href=""><img src="/img/applelogo.png" alt=""></a>
             </div>
             <div class="sign-up-opt">
                 <p>Already have an account? <a href="/login">Log in</a></p>
@@ -56,7 +66,7 @@
 
 
     <footer>
-        <div class="main-ft">PL</div>
+        <div class="main-ft">PL.</div>
         <div class="left1"><p>&copy; 2025 PL, Inc.</p></div>
         <div class="middle"><p>Terms of Service</p></div>
         <div class="right-ft"><p>Privacy Policy</p></div>

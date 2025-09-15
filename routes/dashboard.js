@@ -14,11 +14,12 @@ router.get("/dashboard", requireAuth, async(req, res) => {
             console.log(learningError);
             throw learningError; // if something went wrong
         }
-        console.log(learningData)
+
+        // console.log(learningData)
 
         // Extract unique trainer emails
         const trainerEmails = [...new Set(learningData.map(row => row.trainer_email))];
-        console.log(trainerEmails);
+        // console.log(trainerEmails);
 
         let trainers = []; // this will hold the user objects
 
@@ -29,7 +30,10 @@ router.get("/dashboard", requireAuth, async(req, res) => {
             .select("*")
             .in("email", trainerEmails); // query users whose email is in trainerEmails array
 
-            if (userError) throw userError;
+            if (userError) {
+                console.error(userError);
+                throw userError;
+            }
 
             trainers = trainerData; // store the user objects
 
@@ -43,23 +47,25 @@ router.get("/dashboard", requireAuth, async(req, res) => {
                 .eq("user_email", trainer.email);
 
                 if (skillsError) {
-                    console.error(`Error fetching skills for ${trainer.email}:`, skillsError.message);
-                    trainer.skills = [];
+                    console.error(skillsError);
+                    return res.send('Something went wrong. <a href="/dashboard">Go back to dashboard</a>');
+                    // trainer.skills = [];
                 } else {
                     // Attach skills as an array or comma-separated string
-                    trainer.skills = skillsData.map(s => s.skill).join(", ");
+                    trainer.skills = skillsData.map(s => s.skill).join(",");
                 }
             }
         }
-        console.log(trainers);
+
+        // console.log(trainers);
 
         //Send the array of trainers to dashboard.ejs
-        res.render("dashboard", { trainers });
+        // req.flash("info_msg", trainers);
+        return res.render("dashboard", { trainers });
         
     } catch (error) {
         console.error("Dashboard error:", error.message);
-        // If something fails, just send an empty array to EJS so template doesn't break
-        res.render("dashboard", { trainers: [] });
+        return res.send('Something went wrong. <a href="/dashboard">Go back to dashboard</a>');
     }
 })
 

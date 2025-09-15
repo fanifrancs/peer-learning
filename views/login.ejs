@@ -7,49 +7,53 @@
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    <% if (typeof error !== 'undefined') { %>
-        <script>
-            alert("<%= error %>");
-        </script>
+
+    <% if (typeof success_msg !== "undefined" && success_msg && success_msg.length) { %>
+        <script>alert("<%= success_msg %>")</script>
     <% } %>
 
-    <% if (typeof message !== 'undefined') { %>
-        <script>
-            alert("<%= message %>");
-        </script>
+    <% if (typeof error_msg !== "undefined" && error_msg && error_msg.length) { %>
+        <script>alert("<%= error_msg %>")</script>
     <% } %>
-    <header>
-        <div class="brand">
-            <h1>PL.</h1>
-        </div>
-        <div class="navbar-link">
-            <a class="navbar-link" href="/"><h3>HOME</h3></a>
+
+    <header class="site-header">
+        <div class="container-head">
+                <a class="brand" href="/">
+                    <svg class="logo" viewbox="0 0 24 24" aria-hidden="true"></svg>
+                    <span>PL.</span>
+                </a>
+
+                <nav class="navbar" id="navbar">
+                    <a class="navbar-link" href="/">HOME</a>
+                    <a class="navbar-link" href="/signup">SIGN UP</a>
+                    <a class="navbar-link" href="/login">LOGIN</a>
+                </nav>
         </div>
     </header>
 
     <div class="contents">
-        <div  class="disp">
-            <img src="img/Expanded.png" alt="">
-            <img src="img/Group.png" alt="">
-            <img src="img/Vector (1).png" alt="">
+        <div class="disp">
+            <img src="/img/Expanded.png" alt="">
+            <img src="/img/Group.png" alt="">
+            <img src="/img/Vector (1).png" alt="">
         </div>
         
         <h3>Login to continue your learning Journey</h3>
-        <form class="form" action="/login" method="post">
+        <form class="form" method="post" action="/login">
             <label for="email"></label>
-            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="email" name="email" id="email" placeholder="Email" required>
             <label for="password"></label>
-            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="password" name="password" id="password" placeholder="Password" minlength="6" required>
 
-            <a href="/pwreset"><p>Forgot Password?</p></a>
+            <button type="submit" id="login">Login</button>
 
-            <button id="login">Login</button>
+            <a href="/pw-reset"><p>Forgot Password?</p></a>
 
             <br>
             <p>Other login options</p>
             <div class="other-login">
-                <a href="#"><img src="img/googlelogo.png" alt=""></a>
-                <a href="#"><img src="img/applelogo.png" alt=""></a>
+                <a href="#"><img src="/img/googlelogo.png" alt=""></a>
+                <a href=""><img src="/img/applelogo.png" alt=""></a>
             </div>
             <div class="sign-up-opt">
                 <p>Don't have an account? <a href="/signup">Sign up</a></p>
@@ -61,7 +65,7 @@
 
 
     <footer>
-        <div class="main-ft">PL</div>
+        <div class="main-ft">PL.</div>
         <div class="left1"><p>&copy; 2025 PL, Inc.</p></div>
         <div class="middle"><p>Terms of Service</p></div>
         <div class="right-ft"><p>Privacy Policy</p></div>

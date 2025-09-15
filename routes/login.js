@@ -17,7 +17,8 @@ router.post('/login', async (req, res) => {
 
   if (error) {
     console.error("Login error:", error.message);
-    return res.render("login", { error: error.message });
+    req.flash("error_msg", error.message);
+    return res.redirect("/login");
   }
 
   // Save user session
@@ -25,17 +26,17 @@ router.post('/login', async (req, res) => {
 
   // check if user has a row in "users" table
   const { data: profile } = await supabase
-    .from('users')
-    .select('*')
-    .eq('email', data.user.email)
-    .single();
+  .from('users')
+  .select('*')
+  .eq('email', data.user.email)
+  .single();
 
-    req.session.save(() => {
-        if (!profile) {
-            return res.redirect('/profile');
-        }
-        res.redirect('/dashboard');
-    });
+  req.session.save(() => {
+    if (!profile) {
+      return res.redirect('/profile');
+    }
+    res.redirect('/dashboard');
+  })
 })
 
 module.exports = router;

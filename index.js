@@ -1,5 +1,6 @@
 const express = require("express");
-const session = require('express-session')
+const session = require('express-session');
+const flash = require("connect-flash");
 const path = require("path");
 
 const app = express();
@@ -12,12 +13,29 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+
 app.use(session({
   secret: "super-secret-key",   // change this to something secure
   resave: false,
   saveUninitialized: false,
   cookie: { secure: false }     // set true if using HTTPS
 }))
+
+// middleware
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+})
+
+app.use(flash());
+
+// Make flash messages available in all views
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.info_msg = req.flash("info_msg");
+  next();
+})
 
 // routes
 const indexRoutes = require('./routes/index');

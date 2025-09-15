@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEER TO PEER SKILL EXCHANGE PLATFORM</title>
+    <link href="/css/land-page-style.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- NAVIGATION BAR STARTS HERE -->
+    <header class="site-header">
+        <div class="container-head">
+                <a class="brand" href="/">
+                    <svg class="logo" viewbox="0 0 24 24" aria-hidden="true"></svg>
+                    <span>PL.</span>
+                </a>
+
+                <nav class="navbar" id="navbar">
+                    <a class="navbar-link" href="/">HOME</a>
+                    <a class="navbar-link" href="/dashboard">FIND TRAINERS</a>
+                    <a class="navbar-link" href="/profile">PROFILE</a>
+                    <a class="navbar-link" href="/logout">LOGOUT</a>
+                </nav>
+            </div>
+    </header>
+    <!-- NAVIGATION BAR ENDS HERE -->
+    <main>
+        <!-- HERO SECTION STARTS HERE -->
+         <section class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1><%= existingUser.firstname %> <%= existingUser.lastname %></h1>
+                    <h1><%= trainerData.teach %></h1>
+                    <p>expert in: <%= skillsString %></p>
+
+                    <a class="btn-primary" href="https://wa.me/+234<%= existingUser.whatsapp %>">Connect on whatsapp</a>
+                </div>
+                <div class="hero-image">
+                    <img src="<%= existingUser ? existingUser.profile_picture : '/img/professional-headshot.png' %>" alt="Happy Student">
+                </div>
+            </div>
+         </section>
+         <!-- HERO SECTION ENDS HERE -->
+          <!-- CTA / SIGNUP SECTION STARTS HERE-->
+           
+    </main>
+    <!-- FOOTER STARTS HERE -->
+    <!-- <footer>
+        <div class="main-ft">PL.</div>
+        <div class="left1"><p>&copy; 2025 PL, Inc.</p></div>
+        <div class="middle"><p>Terms of Service</p></div>
+        <div class="right-ft"><p>Privacy Policy</p></div>
+        
+    </footer> -->
+    <!-- FOOTER ENDS HERE -->
+</body>
+</html>

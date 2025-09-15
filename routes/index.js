@@ -7,10 +7,11 @@ router.get('/test_db', async (req, res) => {
 
   if (error) return res.status(500).json({ error: error.message });
   res.json({ message: 'Database connected ✅', data });
-});
+
+})
 
 router.get("/", (req, res) => {
-  res.render("index");
-});
+  res.render("land-page");
+})
 
 module.exports = router;
