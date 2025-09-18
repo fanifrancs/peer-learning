@@ -42,7 +42,13 @@
                 <div class="hero-text">
                     <h1>Exchange Skills. Learn from Peers. Grow Together.</h1>
                     <p>Connect with fellow students who teach you what you want to learn - Quick SignUp, Fast Matching, Instant Chat!</p>
+                    <% if (user) { %>
+                        <!-- User is logged in -->
+                        <a class="btn-primary" href="/dashboard">FIND TRAINERS</a>
+                    <% } else { %>
+                        <!-- User is not logged in -->
                         <a class="btn-primary" href="/signup">Sign Up Now</a>
+                    <% } %>
                 </div>
                 <div class="hero-image">
                     <img src="/img/IMG_3944.jpeg" alt="Happy Student">

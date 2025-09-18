@@ -15,11 +15,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session({
-  secret: "super-secret-key",   // change this to something secure
+  secret: "your-secret-key", // set to something secure
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false }     // set true if using HTTPS
-}))
+  cookie: {
+    secure: false, // true if https
+    // maxAge: 1000 * 60 * 60 * 24 // 1 day
+  }
+}));
 
 // middleware
 app.use((req, res, next) => {
@@ -45,6 +48,7 @@ const profileRoutes = require('./routes/profile');
 const trainerRoutes = require('./routes/trainer');
 const dashboardRoutes = require('./routes/dashboard');
 const searchRoutes = require('./routes/search');
+const learningRoutes = require('./routes/learning');
 const logoutRoutes = require('./routes/logout');
 
 // use routes
@@ -55,6 +59,7 @@ app.use('/', profileRoutes);
 app.use('/', trainerRoutes);
 app.use('/', dashboardRoutes);
 app.use('/', searchRoutes);
+app.use('/', learningRoutes);
 app.use('/', logoutRoutes);
 
 app.listen(PORT, () => {

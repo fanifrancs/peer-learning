@@ -65,13 +65,13 @@ router.get("/trainer/:id", requireAuth, async (req, res) => {
 
   try {
     // Fetch user data from database
-    const { data: existingUser, error: fetchUserError } = await supabase
+    const { data: trainer, error: fetchUserError } = await supabase
     .from("users")
     .select("*")
     .eq("id", trainerId)
     .single();
 
-    if (fetchUserError || !existingUser) {
+    if (fetchUserError || !trainer) {
       return res.send("Something went wrong. <a href='/dashboard'>Return to dashboard</a>");
     }
 
@@ -80,7 +80,7 @@ router.get("/trainer/:id", requireAuth, async (req, res) => {
     const { data: trainerData, error:fetchTrainerError } = await supabase
     .from("trainers")
     .select("*")
-    .eq("user_email", existingUser.email)
+    .eq("user_email", trainer.email)
     .single();
 
     if (fetchTrainerError || !trainerData) {
@@ -91,11 +91,11 @@ router.get("/trainer/:id", requireAuth, async (req, res) => {
 
     // Fetch skills for this user
     let skillsString = "";
-    if (existingUser) {
+    if (trainer) {
       const { data: skillsData, error: skillsError } = await supabase
       .from("skills")
       .select("skill")
-      .eq("user_email", existingUser.email);
+      .eq("user_email", trainer.email);
 
       if (skillsError) {
           console.error("Error fetching skills:", skillsError.message);
@@ -108,7 +108,7 @@ router.get("/trainer/:id", requireAuth, async (req, res) => {
 
     // console.log(skillsString);
 
-    res.render('trainer_page', {existingUser, trainerData, skillsString});
+    res.render('trainer_page', {trainer, trainerData, skillsString});
 
   } catch (err) {
     console.error("Trainer page error:", err.message);

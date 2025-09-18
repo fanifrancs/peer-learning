@@ -29,14 +29,25 @@
          <section class="hero">
             <div class="hero-container">
                 <div class="hero-text">
-                    <h1><%= existingUser.firstname %> <%= existingUser.lastname %></h1>
+                    <h1><%= trainer.firstname %> <%= trainer.lastname %></h1>
                     <h2><%= trainerData.teach %></h2>
-                    <p>expert in: <%= skillsString %></p>
+                    <p>Expert in: <%= skillsString %></p>
+                    <!-- <p>Expertise Level: <%= trainerData.expertise_level %></p> -->
 
-                    <a class="btn-primary" href="https://wa.me/+234<%= existingUser.whatsapp %>" target="_blank">Connect on Whatsapp</a>
+                    <!-- <a class="btn-primary" href="https://wa.me/+234<%= trainer.whatsapp %>" target="_blank">Connect on Whatsapp</a> -->
+                    <a class="btn-primary" href="/learning/<%= trainer.whatsapp %>" target="_blank">Connect</a>
+                    <style>
+                        .btn-primary{
+                            background-color: #25D366;
+                        }
+
+                        .btn-primary:hover{
+                            background-color: #1DA851;
+                        }
+                    </style>
                 </div>
                 <div class="hero-image">
-                    <img src="<%= existingUser ? existingUser.profile_picture : '/img/professional-headshot.png' %>" alt="Happy Student">
+                    <img src="<%= trainer ? trainer.profile_picture : '/img/professional-headshot.png' %>" alt="Happy Student">
                 </div>
             </div>
          </section>

@@ -42,24 +42,23 @@
         </div>
     </div>
     <div class="container-body">
-        <form action="/search" method="post">
+        <form>
             <label for="search"></label>
             <div class="input-icon-wrapper">
                 <img src="/img/vecteezy_search-icon-search-icon-vector-design-illustration-search_7528225-removebg-preview.png" alt="icon" class="input-icon">
-                <input type="text" name="skill" placeholder="Search a skill">
-                <!-- <input type="submit" value="submit"> -->
+                <input type="text" id="searchBox" name="skill" placeholder="Search a skill">
             </div>
         </form>
 
         <h1>Learners are viewing</h1>
-        <div class="profile-grid">
+        <div class="profile-grid" id="results">
             <% if (trainers && trainers.length > 0) { %>
                 <% trainers.forEach(trainer => { %>
-                    <div class="profile-box">
+                    <div class="profile-box" style="cursor: pointer;" data-id="<%= trainer.id %>">
                         <div class="profile-pic"><img src="<%= trainer.profile_picture %>" alt="profile picture"></div>
                         <div class="profile-role"><a href="/trainer/<%= trainer.id %>" style="text-decoration: none;"><%= trainer.skills || 'expert in some field' %></a></div>
                         <div class="profile-rating">
-                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span><br>
                             <span class="rating">4.8</span>
                             <span class="rating-num">4k ratings</span>
                         </div>
@@ -74,7 +73,7 @@
         <div class="profile-grid">
             <% if (trainers && trainers.length > 0) { %>
                 <% trainers.forEach(trainer => { %>
-                    <div class="profile-box">
+                    <div class="profile-box" style="cursor: pointer;" data-id="<%= trainer.id %>">
                         <div class="profile-pic"><img src="<%= trainer.profile_picture %>" alt="profile picture"></div>
                         <div class="profile-role"><a href="/trainer/<%= trainer.id %>" style="text-decoration: none;"><%= trainer.skills || 'expert in some field' %></a></div>
                         <div class="profile-rating">
@@ -95,5 +94,75 @@
         <div class="middle"><p>Terms of Service</p></div>
         <div class="right-ft"><p>Privacy Policy</p></div>
     </footer>
+
+    <script>
+        document.querySelectorAll('.profile-box').forEach(profile => {
+            profile.addEventListener('click', () => {
+                const id = profile.getAttribute('data-id');
+                window.location.href = `/trainer/${id}`;
+            })
+        })
+
+        const searchBox = document.getElementById("searchBox");
+        const resultsDiv = document.getElementById("results");
+
+        // let allTrainers = [...document.querySelectorAll(".profile-box")];
+
+        // remove duplicates based on data-id
+        // allTrainers = allTrainers.filter((trainer, index, self) =>
+        // index === self.findIndex(t => t.dataset.id === trainer.dataset.id)
+        // )
+
+
+        searchBox.addEventListener("input", async (e) => {
+            const skill = e.target.value.trim();
+
+            // if (!skill) {
+            //     console.log(allTrainers)
+            //     // If input is empty, show original trainers
+            //     resultsDiv.innerHTML = "";
+            //     allTrainers.forEach(trainer => resultsDiv.appendChild(trainer));
+            //     return;
+            // }
+
+            try {
+                const res = await fetch(`/api/search?skill=${encodeURIComponent(skill)}`);
+                const data = await res.json();
+
+                // Clear current results
+                resultsDiv.innerHTML = "";
+
+                if (data.trainers.length === 0) {
+                    resultsDiv.innerHTML = '<p class="navbar-link">No trainers found</p>';
+                    return;
+                }
+
+                // Render matched trainers
+                data.trainers.forEach(trainer => {
+                    const div = document.createElement("div");
+                    div.className = "profile-box";
+                    div.setAttribute("data-id", trainer.id);
+                    div.innerHTML = `
+                        <div class="profile-pic"><img src="${trainer.profile_picture}" alt="profile picture"></div>
+                        <div class="profile-role">
+                        <a href="/trainer/${trainer.id}" style="text-decoration: none;">
+                            ${trainer.skills || 'expert in some field'}
+                        </a>
+                        </div>
+                        <div class="profile-rating">
+                        <span class="star">&#9733;</span><br>
+                        <span class="rating">4.8</span>
+                        <span class="rating-num">4k ratings</span>
+                        </div>
+                    `;
+                    resultsDiv.appendChild(div);
+                })
+
+            } catch (err) {
+                console.error("Search failed:", err);
+            }
+        });
+
+    </script>
 </body>
 </html>
